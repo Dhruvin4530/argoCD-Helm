@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  repository: dhruvin30/dhsoniweb
+  tag: v1
+  pullPolicy: IfNotPresent
+service:
+  name: my-web-app-stg
+  type: LoadBalancer
+  port: 80
+  nameSpace: mywebapp
