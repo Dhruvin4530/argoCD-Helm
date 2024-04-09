@@ -26,7 +26,7 @@ spec:
         helm:
           releaseName: portfolio-app
           valueFiles:
-            - charts/portfolio-app/values/{{environment}}/values.yaml
+            - ./values/{{environment}}/values.yaml
       project: default
       syncPolicy:
         syncOptions:
