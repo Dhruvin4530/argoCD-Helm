@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: portfolio-app-prod-set
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster_url: 'https://4C0CD6FC11D6F8998E30C3E96E55B8F1.gr7.us-east-2.eks.amazonaws.com'
+          environment: production
+          target_revision: HEAD
+          namespace: web-app
+          region: us-east-1
+  template:
+    metadata:
+      name: portfolio-app-{{environment}}-{{region}}
+    spec:
+      destination:
+        namespace: '{{namespace}}'
+        server: '{{cluster_url}}'
+      source:
+        path: 'charts/portfolio-app'
+        repoURL: 'https://github.com/Dhruvin4530/argoCD-Helm'
+        targetRevision: '{{target_revision}}'
+        helm:
+          releaseName: portfolio-app
+          valueFiles:
+            - charts/portfolio-app/values/{{environment}}/values.yaml
+      project: default
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+    
