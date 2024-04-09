@@ -20,7 +20,7 @@ spec:
         namespace: '{{namespace}}'
         server: '{{cluster_url}}'
       source:
-        path: 'charts/portfolio-app/templates'
+        path: 'charts/portfolio-app'
         repoURL: 'https://github.com/Dhruvin4530/argoCD-Helm'
         targetRevision: '{{target_revision}}'
         helm:
@@ -28,5 +28,10 @@ spec:
           valueFiles:
             - charts/portfolio-app/values/{{environment}}/values.yaml
       project: default
-      syncPolicy: {}
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          selfHeal: true
+          prune: true
     
