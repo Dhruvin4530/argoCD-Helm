@@ -9,7 +9,7 @@ spec:
       elements:
         - cluster_url: 'https://E1AD8AA23D533C4F7577F7E5490B77F3.gr7.us-east-2.eks.amazonaws.com'
           environment: development
-          target_revision: dev-application-v0.1
+          target_revision: HEAD
           namespace: mywebapp
           region: us-east-1
   template:
@@ -28,4 +28,9 @@ spec:
           valueFiles:
             - ./values/{{environment}}/values.yaml
       project: default
-      syncPolicy: {}
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+        automated:
+          selfHeal: true
+          prune: true
