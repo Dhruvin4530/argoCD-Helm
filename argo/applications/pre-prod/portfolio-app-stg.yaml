@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: portfolio-app-stg-set
+  namespace: argocd
 spec:
   generators:
   - list:
@@ -19,7 +20,7 @@ spec:
         namespace: '{{namespace}}'
         server: '{{cluster_url}}'
       source:
-        path: 'charts/portfolio-app'
+        path: 'charts/portfolio-app/templates'
         repoURL: 'https://github.com/Dhruvin4530/argoCD-Helm'
         targetRevision: '{{target_revision}}'
         helm:
