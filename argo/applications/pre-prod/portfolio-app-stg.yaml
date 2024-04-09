@@ -10,7 +10,7 @@ spec:
         - cluster_url: 'https://C97142F25F1C99374E82B9D29D8F83A7.gr7.us-east-2.eks.amazonaws.com'
           environment: staging
           target_revision: HEAD
-          namespace: web-app
+          namespace: mywebapp
           region: us-east-1
   template:
     metadata:

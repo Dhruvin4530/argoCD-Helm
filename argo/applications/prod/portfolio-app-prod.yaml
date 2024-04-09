@@ -10,7 +10,7 @@ spec:
         - cluster_url: 'https://4C0CD6FC11D6F8998E30C3E96E55B8F1.gr7.us-east-2.eks.amazonaws.com'
           environment: production
           target_revision: HEAD
-          namespace: web-app
+          namespace: mywebapp
           region: us-east-1
   template:
     metadata:
