@@ -1,1 +1,1 @@
-# How to manage K8s application deployed in multiple environments using argoCD &amp; Helm?
+# How do we manage k8s applications deployed in multiple k8s clusters using argoCD & Helm?
