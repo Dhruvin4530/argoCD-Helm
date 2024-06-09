@@ -7,11 +7,11 @@ spec:
   generators:
   - list:
       elements:
-        - cluster_url: 'https://4C0CD6FC11D6F8998E30C3E96E55B8F1.gr7.us-east-2.eks.amazonaws.com'
+        - cluster_url: 'https://BFC34372FDC3ADCA64832BD41E90B352.yl4.us-west-1.eks.amazonaws.com'
           environment: production
           target_revision: HEAD
           namespace: mywebapp
-          region: us-east-1
+          region: us-west-1
   template:
     metadata:
       name: portfolio-app-{{environment}}-{{region}}
@@ -21,7 +21,7 @@ spec:
         server: '{{cluster_url}}'
       source:
         path: 'charts/portfolio-app'
-        repoURL: 'https://github.com/Dhruvin4530/argoCD-Helm'
+        repoURL: 'https://github.com/yogeshhhh/argoCD-Helm'
         targetRevision: '{{target_revision}}'
         helm:
           releaseName: portfolio-app
