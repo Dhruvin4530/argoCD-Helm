@@ -10,13 +10,14 @@ spec:
           environment: production
           target_revision: HEAD
           namespace: mywebapp
+          region: us-west-1
   template:
     metadata:
       name: portfolio-app-{{environment}}-{{region}}
     spec:
       destination:
         namespace: '{{namespace}}'
-        server: '{{cluster_url}}'
+        server: 'https://kubernetes.default.svc'
       source:
         path: 'charts/portfolio-app'
         repoURL: 'https://github.com/yogeshhhh/argoCD-Helm'
