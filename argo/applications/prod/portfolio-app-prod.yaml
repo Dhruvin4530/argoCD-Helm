@@ -7,11 +7,9 @@ spec:
   generators:
   - list:
       elements:
-        - cluster_url: 'https://BFC34372FDC3ADCA64832BD41E90B352.yl4.us-west-1.eks.amazonaws.com'
           environment: production
           target_revision: HEAD
           namespace: mywebapp
-          region: us-west-1
   template:
     metadata:
       name: portfolio-app-{{environment}}-{{region}}
